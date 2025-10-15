@@ -1,2 +1,2 @@
 # FEN_cheatsheets
-Visual reference files for baby HTML, CSS Flexbox and Psuedo-classes
+Link new pages to index as created. File names by content.
