@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Tutorial</title>
+    <style>
+        :root {
+      --primary-color: rgb(43, 138, 179);
+        }
+
+        body {
+            font-family:'Trebuchet MS', 'Gill Sans MT', 'Gill Sans', Calibri, sans-serif;
+            margin: 20px;
+            border: 2px dashed var(--primary-color);
+            padding: 1rem;
+        }
+
+        .container {
+            display: flex; /* DO NOT FORGET THIS */
+            flex-wrap:wrap; /* Better here when possible for default wrap that includes borders*/
+                /* Other flex options: 
+                    flex-direction - defaults to ROW - can set to column
+                    gap- set to decimal rem for best results
+                    justify-content = horizontal positioning
+                    align-content = vertical positioning */
+            border: 2px solid #978cbb;
+            height: 300px;
+            margin-bottom: 40px; /*Increased margin for spacing*/
+        }
+
+        .box {
+            background-color: #99ed2b5a;
+            border: 2px solid #444;
+            color: rgb(0, 13, 3);
+            padding: 20px;
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 5px;
+        }
+
+        h2, h3 {
+            margin-top: 40px; /* Increased margin for spacing */
+        }
+    </style>
+</head>
+<body>
+    <h1>Flexbox CSS Tutorial</h1>
+    <div><a href="index.html">Master List</a></div>
+
+    <h2>1. Basic Flexbox Container</h2>
+    <div class="container">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+    </div>
+
+    <h2>2. Flex Direction</h2>
+    <div class="container" style="flex-direction: column;">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+    </div>
+
+    <h2>3. Justify Content</h2>
+    <div class="container" style="justify-content: space-between;">
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+    </div>
+
+    <h2>4. Align Items</h2>
+    <div class="container" style="align-items: center;"> <!-- right-left axis; Other options: flex-end, flex start (top right), etc; Pair align-items:center with justify-content: center to center on page-->
+      <div class="box">Box 1</div>
+      <div class="box">Box 2</div>
+      <div class="box">Box 3</div>
+    </div>
+
+    <h2>5. Flex Wrap</h2>
+    <div class="container" style="flex-wrap: wrap;"> <!-- Consider which borders need to be included. Add Flex-wrap: wrap at class styling in header to include border, padding, etc for container item itself. Or at container level for nuance.-->
+    <div class="box" style="flex: 1 1 100px;">Box 1</div>
+    <div class="box" style="flex: 1 1 100px;">Box 2</div>
+    <div class="box" style="flex: 1 1 100px;">Box 3</div>
+    <div class="box" style="flex: 1 1 100px;">Box 4</div>
+    </div>
+
+    <h2>6. Align Content</h2>
+    <div class="container" style="flex-wrap: wrap; align-content: space-around;"> <!-- Space-around keeps items centered with equal space top and bottom ("around") of items, space-between pushes all space between the items and no space top of top item or bottom of bottom items-->
+    <div class="box" style="flex: 1 1 100px;">Box 1</div>
+    <div class="box" style="flex: 1 1 100px;">Box 2</div>
+    <div class="box" style="flex: 1 1 100px;">Box 3</div>
+    <div class="box" style="flex: 1 1 100px;">Box 4</div>
+    </div>
+
+    <h2>7. Flex Grow, Shrink and Basis</h2>
+    <div class="container" style="flex-wrap: wrap; align-content: space-between;">
+    <div class="box" style="flex-basis: 100px;">Box 1</div> <!-- Sets the max grow siz, using grow-->
+    <div class="box" style="flex-grow: 3;">Box 2</div> <!-- flex-grow; 1 is base size, 2 is twice as big as sibling at size 1, 3 is three times as big as 1, etc -->
+    <div class="box" style="flex-grow: 1;">Box 3</div> <!-- Can do flex-shrink also-->
+    </div>
+
+    <h2>8.Order</h2>
+    <div class="container" style="flex-wrap: wrap; align-content: space-between;">
+    <div class="box" style="order: 3">Box 1</div> <!-- Good for retrofitting old code that isn't easy to rearrange-->
+    <div class="box" style="order: 2">Box 2</div>
+    <div class="box" style="order: 1">Box 3</div>
+    </div>
+</body>
+</html>

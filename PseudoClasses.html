@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo-Classes Tutorial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        section {
+            margin-bottom: 40px; /* Increased margin for spacing */
+        }
+
+        .button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: red;
+            border: 5px dashed black;
+        }
+
+        .input:focus {
+            border: 5px solid rgb(156, 19, 19);
+            outline: 0; /* also none? ask about accessibility */
+        }
+
+        ul li:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        ul li:nth-child(even) {
+            background-color: #eee;
+        }
+
+        ul li:first-child {
+            font-weight: bold;
+        }
+
+        ul li:last-child {
+            font-style: italic;
+        }
+
+        ul li:not(:first-child):not(:last-child) {
+            text-decoration: underline;
+        }
+
+        a:visited {
+            color: purple;
+        }
+
+        a:active {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>CSS Pseudo-Classes Tutorial</h1>
+
+<section>
+    <h2>1. :hover</h2>
+    <button class="button">Hover over me!</button>
+</section>
+
+<section>
+    <h2>2. :focus</h2>
+    <input class="input" type="text" placeholder="Focus on me!" />
+</section>
+
+<section>
+    <h2>3. :nth-child</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+    </ul>
+</section>
+
+<section>
+    <h2>4. :first-child and :last-child</h2>
+    <ul>
+        <li>First Item</li>
+        <li>Middle Item 1</li>
+        <li>Middle Item 2</li>
+        <li>Last Item</li>
+    </ul>
+</section>
+
+<section>
+    <h2>5. :not</h2>
+    <ul>
+        <li>First Item</li>
+        <li>Middle Item 1</li>
+        <li>Middle Item 2</li>
+        <li>Last Item</li>
+    </ul>
+</section>
+
+<section>
+    <h2>6. :visited</h2>
+    <a href="#" class="visited-link">Visited Link</a>
+</section>
+
+<section>
+    <h2>7. :active</h2>
+    <a href="#" class="active-link">Active Link</a>
+</section>
+</body>
+</html>
