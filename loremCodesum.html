@@ -4,11 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/loremStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
-    <!-- LANGUAGE COMPONENTS -->
-     <!-- ADD THESE -->
+    <!-- Prism Languages -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
@@ -22,23 +22,33 @@
     <title>Lorem Codesum</title>
 </head>
 <body>
-    <div class="header">
+    <header class="header">
     <h1 class="header">Lorem Ipsum of Code</h1>
     <p class="description">Filler code for testing themes across all semantic types</p>
-    </div>
+    </header>
     <section class="code-master">
         <div class="code-container">
         <div class="code-container__tabs">
-            <button class="code-container__tab code-container__tab--active" data-language="html"><i class="fab fa-html5 code-container__icon"></i>HTML</button>
-            <button class="code-container__tab" data-language="css"><i class="fab fa-css3-alt code-container__icon"></i>CSS</button>
-            <button class="code-container__tab" data-language="javascript"><i class="fab fa-js code-container__icon"></i>JavaScript</button>
-            <button class="code-container__tab" data-language="typescript"><i class="fab fa-js-square code-container__icon"></i>Typescript</button>
-            <button class="code-container__tab" data-language="python"><i class="fab fa-python code-container__icon"></i>Python</button>
-            <button class="code-container__tab" data-language="rust"><i class="fab fa-rust code-container__icon"></i>Rust</button>
-            <button class="code-container__tab" data-language="golang"><i class="fab fa-google code-container__icon"></i>Golang</button>
-            <button class="code-container__tab" data-language="curl"><i class="fas fa-terminal code-container__icon"></i>Curl</button>
-            <button class="code-container__tab" data-language="elixir"><i class="fab fa-phoenix-framework code-container__icon"></i>Elixir</button>
-            <button class="code-container__tab" data-language="java"><i class="fab fa-java code-container__icon"></i>Java</button>
+            <button class="code-container__tab code-container__tab--active" data-language="html">
+              <i class="fab code-container__icon fa-html5"></i>HTML</button>
+            <button class="code-container__tab" data-language="css">
+              <i class="fab code-container__icon fa-css3-alt"></i>CSS</button>
+            <button class="code-container__tab" data-language="javascript">
+              <i class="fab code-container__icon fa-js"></i>JavaScript</button>
+            <button class="code-container__tab" data-language="typescript">
+              <i class="fab code-container__icon fa-js-square"></i>Typescript</button>
+            <button class="code-container__tab" data-language="python">
+              <i class="fab code-container__icon fa-python"></i>Python</button>
+            <button class="code-container__tab" data-language="rust">
+              <i class="fab code-container__icon fa-rust"></i>Rust</button>
+            <button class="code-container__tab" data-language="golang">
+              <i class="fab code-container__icon fa-google"></i>Golang</button>
+            <button class="code-container__tab" data-language="curl">
+              <i class="fas code-container__icon fa-terminal"></i>Curl</button>
+            <button class="code-container__tab" data-language="elixir">
+              <i class="fab code-container__icon fa-phoenix-framework"></i>Elixir</button>
+            <button class="code-container__tab" data-language="java">
+              <i class="fab code-container__icon fa-java"></i>Java</button>
         </div>
         <div class="code-container__content">
             <div class="copy-icon" onClick="copyCode()" role="button" tabindex="0" aria-label="Copy code to clipboard" title="Copy code to clipboard">
@@ -46,35 +56,17 @@
             </div>
 <!-- EMPTY PRE/ CODE BLOCKS FOR DISPLAY -->
     <!-- NEW -->
-            <pre class="code-container__code line-numbers code-container__code--html code-container__code--active"><code class="language-markup"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--css"><code class="language-css"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--javascript"><code class="language-javascript"></code>
-            </pre>
+            <pre class="code-container__code line-numbers code-container__code--html code-container__code--active"><code class="language-markup"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--css"><code class="language-css"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--javascript"><code class="language-javascript"></code></pre>
                 <!-- OLD -->
-            <pre class="code-container__code line-numbers code-container__code--typescript"><code class="language-typescript"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--python"><code class="language-python"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--rust"><code class="language-rust"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--golang"><code class="language-go"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--curl"><code class="language-bash"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--elixir"><code class="language-elixir"></code>
-            </pre>
-
-            <pre class="code-container__code line-numbers code-container__code--java"><code class="language-java"></code>
-            </pre>
+            <pre class="code-container__code line-numbers code-container__code--typescript"><code class="language-typescript"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--python"><code class="language-python"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--rust"><code class="language-rust"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--golang"><code class="language-golang"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--curl"><code class="language-bash"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--elixir"><code class="language-elixir"></code></pre>
+            <pre class="code-container__code line-numbers code-container__code--java"><code class="language-java"></code></pre>
         </div>
     </div>
 </section>
@@ -657,8 +649,8 @@ if cats_remaining > MAX_CATS {
 
 <template id="sample-golang">
 /**
-* Theme Torture Go
-* -----------------
+* Theme Torture Golang
+* --------------------
 * Intentionally Dysfunctional
 */
 
