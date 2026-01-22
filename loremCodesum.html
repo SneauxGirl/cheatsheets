@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="styles/loremStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
@@ -22,7 +22,8 @@
     <h1 class="header">Lorem Ipsum of Code</h1>
     <p class="description">Filler code for testing themes across all semantic types</p>
     </div>
-    <div class="code-container">
+    <section class="code-master">
+        <div class="code-container">
         <div class="code-container__tabs">
             <button class="code-container__tab code-container__tab--active" data-language="typescript">
             <i class="fab fa-js-square code-container__icon"></i>
@@ -57,5 +58,159 @@
             <div class="copy-icon" onClick="copyCode()" role="button" tabindex="0" aria-label="Copy code to clipboard" title="Copy code to clipboard">
                 <i class="fas fa-copy"></i>
             </div>
+
+<!-- TODO: Solve issues with HTML rendering false elements from typescript code -->
+<!-- TYPESCRIPT - demonstrates type annotations and interfaces-->
+             <pre class="code-container__code code-container__code--typescript code-container__code--active line-numbers"><code class="language-typescript">interface User {
+  name: string;
+  age: number;
+  isActive: boolean;
+}
+
+type Status = 'active' | 'inactive' | 'pending';
+
+class UserService<T extends User> {
+  private users: T[] = [];
+  
+  constructor(public readonly apiUrl: string) {}
+  
+  async fetchUser(id: number): Promise<T | null> {
+    const response = await fetch(`${this.apiUrl}/users/${id}`);
+    return response.json() as T;
+  }
+  
+  filterUsers(predicate: (user: T) => boolean): T[] {
+    return this.users.filter(predicate);
+  }
+}
+
+const config: Record<string, any> = {
+  timeout: 5000,
+  retries: 3
+};
+
+                    </code></pre>
+<!-- PYTHON - demonstrates decorators, f-strings, type hints -->
+                <pre class="code-container__code code-container__code--python line-numbers"><code class="language-python">from typing import List, Dict, Optional, Union
+import asyncio
+import re
+
+class DataProcessor:
+    """Docstring for class - demonstrates doctype"""
+    
+    def __init__(self, name: str, threshold: float = 0.5):
+        self.name = name
+        self.threshold = threshold
+        self._private = None
+    
+    @staticmethod
+    def validate(data: Dict[str, Any]) -> bool:
+        """Static method with type hints"""
+        return bool(data) and 'id' in data
+    
+    @property
+    def computed_value(self) -> int:
+        return len(self.name) * 10
+    
+    async def process_async(self, items: List[int]) -> Optional[Union[int, str]]:
+        # Comment showing operators and numbers
+        result = sum([x * 2 + 3 for x in items if x > 0])
+        pattern = r'^[a-zA-Z0-9]+$'
+        
+        if result > 100:
+            return f"High value: {result}"
+        elif result == 0:
+            return None
+        else:
+            return result
+
+# Built-in functions and keywords
+numbers = [1, 2, 3, 4, 5]
+filtered = list(filter(lambda x: x % 2 == 0, numbers))
+print(f"Filtered: {filtered}")
+
+try:
+    value = int("123")
+except ValueError as e:
+    raise Exception(f"Error: {e}") from e
+finally:
+    pass
+                    </code></pre>
+                <pre class="code-container__code code-container__code--rust line-numbers"><code class="language-rust">use codeswitch::models::{VerifyKeyRequest, Wrapped};
+use codeswitch::Client;
+
+async fn verify_key() {
+    let api_key = env::var("codeswitch_API_KEY").expect("Environment variable CODESWITCH_API_KEY not found");
+    let c = Client::new(&api_key);
+    let req = VerifyKeyRequest::new("test_req", "api_458vdYdbwut5LWABzXZP3Z8jPVas");
+
+    match c.verify_key(req).await {
+        Wrapped::Ok(res) => println!("{{res:?}}"),
+        Wrapped::Err(err) => eprintln!("{{err:?}}"),
+    }
+}
+                    </code></pre>
+                <pre class="code-container__code code-container__code--golang line-numbers"><code class="language-go">package main
+
+import (
+    "fmt"
+    codeswitch "github.com/WilfredAlmeida/codeswitch-go/features"
+)
+
+func main() {
+    apiKey := "key_3ZZ7faJrkfv1YAfhfAcnKW74";
+    response, err := codeswitch.KeyVerify(apiKey);
+    if err != nil {
+        fmt.Println("Error:", err);
+        return;
+    }
+
+    if response.Valid {
+        fmt.Println("Key is valid");
+    } else {
+        fmt.Println("Key is invalid");
+    }
+}
+                    </code></pre>
+                <pre class="code-container__code code-container__code--curl line-numbers"><code class="language-bash">curl --request POST \
+--url https://api.codeswitch.dev/v1/keys.verifyKey \
+--header 'Content-Type: application/json' \
+--data '{
+    "apiId": "api_1234",
+    "key": "sk_1234",
+}'
+                    </code></pre>
+                <pre class="code-container__code code-container__code--elixir line-numbers"><code class="language-elixir">CodeswitchElixirSdk.verify_key("xyz_AS5HDbkXXPot2MMoPHD8jnL")
+
+# returns
+%{
+    "valid" => true,
+    "ownerId" => "chronak",
+    "meta" => %{
+        "hello" => "world"
+    }
+}
+                    </code></pre>
+                <pre class="code-container__code code-container__code--java line-numbers"><code class="language-java">package com.example.myapp;
+import com.codeswitch.codeswitchsdk.dto.KeyVerifyRequest;
+import com.codeswitch.codeswitchsdk.dto.KeyVerifyResponse;
+
+@RestController
+public class APIController {
+
+    private static IKeyService keyService = new KeyService();
+
+    @PostMapping("/verify")
+    public KeyVerifyResponse verifyKey(
+        @RequestBody KeyVerifyRequest keyVerifyRequest) {
+        // Delegate the creation of the key to the KeyService from the SDK
+        return keyService.verifyKey(keyVerifyRequest);
+    }
+}
+                    </code></pre>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
