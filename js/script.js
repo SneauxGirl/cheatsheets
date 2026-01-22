@@ -1,35 +1,90 @@
-// This function is a pencil pusher. No really.
+// This script is a pencil pusher. No really.
 // It does not evaluate, execute, or summon anything.
 // It only moves text from one safe place to another.
 
+// ==========================================
+// Load code safely from templates
+// ==========================================
+
+// Load code from template into a pre/code block
+  function loadCode(language) {
+    const template = document.getElementById(`sample-${language}`);
+    const codeBlock = document.querySelector(
+      `.code-container__code--${language} code`
+    );
+    if (!template || !codeBlock) return;
+
+    // Set Prism language class properly
+    const prismLang = prismLanguageMap[language] || language;
+    codeBlock.className = `language-${prismLang}`;
+
+    // Insert template content
+    codeBlock.textContent = template.textContent.trim();
+
+    // Highlight with Prism
+    Prism.highlightElement(codeBlock);
+  }
+
+// =====================================
+// DOMContentLoaded: setup tabs & default
+// =====================================
 document.addEventListener("DOMContentLoaded", function() {
     const tabs = document.querySelectorAll(".code-container__tab");
     const codeBlocks = document.querySelectorAll(".code-container__code");
 
-    // Load default language ONCE
-    loadCode("typescript");
+// Map special cases for Prism language class
+    const prismLanguageMap = {
+        golang: "go", // Golang tab maps to Prism 'go'
+        curl: "bash", // Curl tab maps to Prism 'bash'
+        typescript: "typescript", // explicitly include if needed
+        javascript: "javascript",
+        html: "markup",
+        css: "css",
+        python: "python",
+        rust: "rust",
+        elixir: "elixir",
+        java: "java",
+    };
 
+    // Initialize default tab (first tab active)
+    const defaultTab = document.querySelector(".code-container__tab--active");
+    if (defaultTab) loadCode(defaultTab.getAttribute("data-language"));
+
+    // Tab click handling
     tabs.forEach(tab => {
         tab.addEventListener("click", function() {
             const language = this.getAttribute("data-language");
 
-            // Remove active states
-            tabs.forEach(t =>
-                t.classList.remove("code-container__tab--active")
-            );
+            // Remove all active states
+            tabs.forEach(t => t.classList.remove("code-container__tab--active"));
             codeBlocks.forEach(c =>
-                c.classList.remove("code-container__code--active")
-            );
+            c.classList.remove("code-container__code--active"));
 
-            // Activate selected tab + block
+            // Activate clicked tab and corresponding code block
             this.classList.add("code-container__tab--active");
-            const activeBlock = document.querySelector(
-                `.code-container__code--${language}`
-            );
-            activeBlock.classList.add("code-container__code--active");
+            const activeBlock = document.querySelector(`.code-container__code--${language}`);
+            if (activeBlock) activeBlock.classList.add("code-container__code--active");
 
-            // Load + highlight (safe to call repeatedly)
+            // Load template content safely
             loadCode(language);
         });
     });
 });
+
+// =====================================
+// COPY CODE - Language-proofed
+// =====================================
+function copyCode() {
+  // Find the currently active code block
+  const activeCodeBlock = document.querySelector(".code-container__code--active code");
+  if (!activeCodeBlock) return;
+
+  // Copy text to clipboard
+  navigator.clipboard.writeText(activeCodeBlock.textContent)
+    .then(() => {
+      console.log("Code copied to clipboard!");
+    })
+    .catch(err => {
+      console.error("Failed to copy code: ", err);
+    });
+}
