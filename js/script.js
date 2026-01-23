@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const codeBlock = document.querySelector(
       `.code-container__code--${language} code`
     );
+
+    console.log("Loading:", language, template, codeBlock);
+
     if (!template || !codeBlock) return;
 
     // Set Prism language class properly
